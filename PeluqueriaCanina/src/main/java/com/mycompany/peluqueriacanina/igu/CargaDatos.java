@@ -151,6 +151,11 @@ public class CargaDatos extends javax.swing.JFrame {
 
         btnLimpiar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         btnGuardar.setText("Guardar");
@@ -202,6 +207,17 @@ public class CargaDatos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtNombre.setText("");
+        txtRaza.setText("");
+        txtColor.setText("");
+        txtNombreDuenio.setText("");
+        txtCelDuenio.setText("");
+        txtObservaciones.setText("");
+        cmbAlergico.setSelectedIndex(0);
+        cmbAtEpecial.setSelectedIndex(0);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
 
