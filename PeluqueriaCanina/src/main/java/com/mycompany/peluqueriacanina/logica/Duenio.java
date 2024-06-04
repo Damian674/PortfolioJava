@@ -17,16 +17,15 @@ public class Duenio implements Serializable {
     private int id_duenio;
     private String nombre;
     private String celular;
-    private String direccion;
+    
 
     public Duenio() {
     }
 
-    public Duenio(int id_duenio, String nombre, String celular, String direccion) {
+    public Duenio(int id_duenio, String nombre, String celular) {
         this.id_duenio = id_duenio;
         this.nombre = nombre;
         this.celular = celular;
-        this.direccion = direccion;
     }
 
     public int getId_duenio() {
@@ -51,18 +50,6 @@ public class Duenio implements Serializable {
 
     public void setCelular(String celular) {
         this.celular = celular;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    
-    
-    
-    
+    }    
     
 }

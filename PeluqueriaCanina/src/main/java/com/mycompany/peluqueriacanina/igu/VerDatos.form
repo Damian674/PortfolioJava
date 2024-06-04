@@ -97,8 +97,8 @@
                               <Component id="jScrollPane1" min="-2" pref="583" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jButton1" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <Component id="btnEliminar" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="btnEditar" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -118,9 +118,9 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="btnEliminar" min="-2" pref="48" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="btnEditar" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="tablaMascotas">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="4"/>
@@ -159,19 +159,25 @@
                 <Property name="text" type="java.lang.String" value="Datos de mascotas:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnEliminar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/peluqueriacanina/imagenes/png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
+                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnEditar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/peluqueriacanina/imagenes/png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
+                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
