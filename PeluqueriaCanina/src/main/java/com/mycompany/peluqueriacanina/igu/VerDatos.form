@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -162,14 +162,14 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
+                  <Image iconType="3" name="/com/mycompany/peluqueriacanina/imagenes/png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
+                  <Image iconType="3" name="/com/mycompany/peluqueriacanina/imagenes/png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
                 </Property>
               </Properties>
             </Component>

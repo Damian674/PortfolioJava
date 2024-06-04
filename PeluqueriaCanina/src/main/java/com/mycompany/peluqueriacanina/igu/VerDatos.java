@@ -1,14 +1,17 @@
 
 package com.mycompany.peluqueriacanina.igu;
 
+import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
+import com.mycompany.peluqueriacanina.logica.Mascotas;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class VerDatos extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VerDatos
-     */
+    
+    ControladoraLogica control = null;
+   
     public VerDatos() {
+        control = new ControladoraLogica();
         initComponents();
     }
 
@@ -54,9 +57,9 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Datos de mascotas:");
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Damian\\Desktop\\Java 2024\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/imagenes/png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Damian\\Desktop\\Java 2024\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/peluqueriacanina/imagenes/png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,6 +153,7 @@ public class VerDatos extends javax.swing.JFrame {
     private void cargarTabla() {
         //defino el modelo que va a tener la tabla
         DefaultTableModel tabla = new DefaultTableModel(){
+            
             //para hacer que fila y columna no se puedan editar
             public boolean isCellEditable (int row, int column){
                 return false;
@@ -160,6 +164,19 @@ public class VerDatos extends javax.swing.JFrame {
         String titulos [] = {"Num", "Nombre", "Color", "Raza", "Alergico", "At. esp.", "Dueño", "Cel."};
         tabla.setColumnIdentifiers(titulos);
         
+        //carga datos desde la BD
+        List <Mascotas> listaMascotas = control.traerMascotas();
         
+        //recorrer lista mascotas y mostar cada elemento en la tabla
+        if(listaMascotas!=null){
+            for(Mascotas mascotas : listaMascotas){
+                Object [] objeto = {mascotas.getNum_cliente(),mascotas.getNombre_perro(),mascotas.getColor(),
+                    mascotas.getRaza(),mascotas.getAlergico(),mascotas.getAtencion_especial(),
+                    mascotas.getDuenio().getNombre(),mascotas.getDuenio().getCelular()
+                };
+                tabla.addRow(objeto);
+                
+            }
+        }
     }
 }
