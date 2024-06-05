@@ -44,6 +44,36 @@ public class ControladoraLogica {
     public Mascotas traerMascota(int num_cliente) {
         return controlPersis.traerMascota(num_cliente);
     }
+
+    public void modificarMascota(Mascotas masco, String nombreMasco, String raza, String color, 
+            String alergico, String ateEsp, String observaciones, String nombreDuenio, String celDuenio) {
+        masco.setNombre_perro(nombreMasco);
+        masco.setRaza(raza);
+        masco.setColor(color);
+        masco.setAlergico(alergico);
+        masco.setAtencion_especial(ateEsp);
+        masco.setObservaciones(observaciones);
+        
+        //modifico mascota
+        controlPersis.modificarMascota(masco);
+        
+        //seteo nuevo valores al dueño
+        Duenio duenio = this.buscarDuenio(masco.getDuenio().getId_duenio());
+        duenio.setCelular(celDuenio);
+        duenio.setNombre(nombreDuenio);
+        
+        //llamar al modificador del dueño
+        this.modificarDuenio(duenio);
+        
+    }
+
+    private Duenio buscarDuenio(int id_duenio) {
+       return controlPersis.traerDuenio(id_duenio);
+    }
+
+    private void modificarDuenio(Duenio duenio) {
+        controlPersis.modificarDuenio(duenio);
+    }
     
     
     
