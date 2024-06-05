@@ -162,7 +162,7 @@
             <Component class="javax.swing.JButton" name="btnEliminar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
+                  <Image iconType="2" name="C:\Users\St_De\OneDrive\Documentos\NetBeansProjects\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -172,7 +172,7 @@
             <Component class="javax.swing.JButton" name="btnEditar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Damian\Desktop\Java 2024\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
+                  <Image iconType="2" name="C:\Users\St_De\OneDrive\Documentos\NetBeansProjects\PortfolioJava\PeluqueriaCanina\src\main\java\com\mycompany\peluqueriacanina\imagenes\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png"/>
                 </Property>
               </Properties>
               <Events>

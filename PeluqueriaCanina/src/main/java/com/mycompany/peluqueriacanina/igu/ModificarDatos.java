@@ -2,16 +2,20 @@
 package com.mycompany.peluqueriacanina.igu;
 
 import com.mycompany.peluqueriacanina.logica.ControladoraLogica;
+import com.mycompany.peluqueriacanina.logica.Mascotas;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class ModificarDatos extends javax.swing.JFrame {
 
     ControladoraLogica control = null;
+    int num_cliente;
     
-    public ModificarDatos() {
+    public ModificarDatos(int num_cliente) {
         control = new ControladoraLogica();
+        //this.num_cliente = num_cliente;
         initComponents();
+        cargarDatos(num_cliente);
     }
 
     /**
@@ -278,4 +282,28 @@ public class ModificarDatos extends javax.swing.JFrame {
     private javax.swing.JTextArea txtObservaciones;
     private javax.swing.JTextField txtRaza;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos(int num_cliente) {
+        
+        Mascotas masco = control.traerMascota(num_cliente);
+        
+        txtNombre.setText(masco.getNombre_perro());
+        txtRaza.setText(masco.getRaza());
+        txtColor.setText(masco.getColor());
+        txtNombreDuenio.setText(masco.getDuenio().getNombre());
+        txtCelDuenio.setText(masco.getDuenio().getCelular());
+        txtObservaciones.setText(masco.getObservaciones());
+        
+        if(masco.getAlergico().equals("SI")){
+            cmbAlergico.setSelectedIndex(1);
+        }else{
+            cmbAlergico.setSelectedIndex(2);
+        }
+        if(masco.getAtencion_especial().equals("SI")){
+            cmbAtEpecial.setSelectedIndex(1);
+        }else{
+            cmbAtEpecial.setSelectedIndex(2);
+        }        
+                
+    }
 }

@@ -59,14 +59,14 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Datos de mascotas:");
 
-        btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Damian\\Desktop\\Java 2024\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png")); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\St_De\\OneDrive\\Documentos\\NetBeansProjects\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-clipart-delete-logo-button-icon-delete-button-love-image-file-formats-thumbnail.png")); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
 
-        btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Damian\\Desktop\\Java 2024\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png")); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon("C:\\Users\\St_De\\OneDrive\\Documentos\\NetBeansProjects\\PortfolioJava\\PeluqueriaCanina\\src\\main\\java\\com\\mycompany\\peluqueriacanina\\imagenes\\png-transparent-computer-icons-editing-button-edit-s-pencil-photography-emoticon.png")); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -181,7 +181,7 @@ public class VerDatos extends javax.swing.JFrame {
                 //obtengo el id de la persona a editar
                 int num_cliente =   Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(), 0)));
                 
-                ModificarDatos pantalla_modificar = new ModificarDatos();
+                ModificarDatos pantalla_modificar = new ModificarDatos(num_cliente);
                 pantalla_modificar.setVisible(true);
                 pantalla_modificar.setLocationRelativeTo(null);
                 

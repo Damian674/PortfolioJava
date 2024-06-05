@@ -40,6 +40,10 @@ public class ControladoraLogica {
     public void borrarMascota(int num_cliente) {
         controlPersis.borrarMascota(num_cliente);
     }
+
+    public Mascotas traerMascota(int num_cliente) {
+        return controlPersis.traerMascota(num_cliente);
+    }
     
     
     
