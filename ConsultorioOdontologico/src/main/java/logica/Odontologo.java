@@ -7,7 +7,7 @@ import java.util.List;
 public class Odontologo extends Persona{
     
     //Atributos propios
-    private int id_odontologo;
+    //private int id_odontologo;
     private String especialidad;
     
     //relacion 1 a 1 con Usuario
@@ -20,21 +20,12 @@ public class Odontologo extends Persona{
     public Odontologo() {
     }
 
-    public Odontologo(int id_odontologo, String especialidad, Usuario unUsuario, List<Turno> listaTurnos, Horario unHorario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Odontologo(String especialidad, Usuario unUsuario, List<Turno> listaTurnos, Horario unHorario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_odontologo = id_odontologo;
         this.especialidad = especialidad;
         this.unUsuario = unUsuario;
         this.listaTurnos = listaTurnos;
         this.unHorario = unHorario;
-    }
-
-    public int getId_odontologo() {
-        return id_odontologo;
-    }
-
-    public void setId_odontologo(int id_odontologo) {
-        this.id_odontologo = id_odontologo;
     }
 
     public String getEspecialidad() {

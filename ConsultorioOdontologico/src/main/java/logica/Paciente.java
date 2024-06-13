@@ -7,7 +7,7 @@ import java.util.List;
 public class Paciente extends Persona{
     
     //atributos propios del paciente
-    private int id_paciente;
+    //private int id_paciente;
     private boolean tiene_OS;
     private String tipoSangre;
     
@@ -19,22 +19,15 @@ public class Paciente extends Persona{
     public Paciente() {
     }
 
-    public Paciente(int id_paciente, boolean tiene_OS, String tipoSangre, Responsable unResposable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Paciente(boolean tiene_OS, String tipoSangre, Responsable unResposable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_paciente = id_paciente;
         this.tiene_OS = tiene_OS;
         this.tipoSangre = tipoSangre;
         this.unResposable = unResposable;
         this.listaTurnos = listaTurnos;
     }
 
-    public int getId_paciente() {
-        return id_paciente;
-    }
-
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
-    }
+    
 
     public boolean isTiene_OS() {
         return tiene_OS;
