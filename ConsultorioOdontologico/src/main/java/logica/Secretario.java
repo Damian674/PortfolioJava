@@ -1,26 +1,32 @@
 
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
-
-public class Secretario extends Persona{
+@Entity
+public class Secretario extends Persona implements Serializable{
     
     //atributos propios
     //private int id_secretario;
     private String sector;
     
     //relacion 1 a 1 con Usuario
+    @OneToOne
     private Usuario unUsuario;
 
     public Secretario() {
     }
 
-    public Secretario(String sector, Usuario unUsuario, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
+    public Secretario(String sector, Usuario unUsuario, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.sector = sector;
         this.unUsuario = unUsuario;
     }
+
+    
 
     
 
