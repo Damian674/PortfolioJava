@@ -26,12 +26,12 @@ public class Turno implements Serializable {
     
     //relacion 1 a n con Paciente
     @ManyToOne
-    @JoinColumn(name = "id_turno2")
+    @JoinColumn(name = "id_pacien")
     private Paciente pacien;
     
     // relacion 1 a n con Odontologo
     @ManyToOne
-    @JoinColumn(name="id_turno")
+    @JoinColumn(name="id_odonto")
     private Odontologo odonto;
     
 
