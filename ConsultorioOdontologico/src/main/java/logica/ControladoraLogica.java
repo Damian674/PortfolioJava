@@ -51,5 +51,34 @@ public class ControladoraLogica {
         }
         return ingreso;
     }
-    
+
+    public void crearOdontologo(String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nac, String especialidad) {
+        Odontologo odonto = new Odontologo();
+        odonto.setDni(dni);
+        odonto.setNombre(nombre);
+        odonto.setApellido(apellido);
+        odonto.setTelefono(telefono);
+        odonto.setDireccion(direccion);
+        odonto.setFecha_nac(fecha_nac);
+        odonto.setEspecialidad(especialidad);
+        
+        controlPersis.crearOdontologo(odonto);
+    }
+
+    public List<Odontologo> getOdontologos() {
+        return controlPersis.getOdontologos();
+    }
+
+    public void borrarOdontologo(int id) {
+        controlPersis.borrarOdontologo(id);
+    }
+
+    public Odontologo traerOdontologo(int id) {
+        return controlPersis.traerOdontologo(id);
+    }
+
+    public void editarOdontologo(Odontologo odo) {
+        controlPersis.editarOdontologo(odo);
+    }
+
 }

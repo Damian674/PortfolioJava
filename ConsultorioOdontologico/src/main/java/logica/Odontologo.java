@@ -2,7 +2,6 @@
 package logica;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -30,7 +29,7 @@ public class Odontologo extends Persona implements Serializable{
     public Odontologo() {
     }
 
-    public Odontologo(String especialidad, Usuario unUsuario, List<Turno> listaTurnos, Horario unHorario, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Odontologo(String especialidad, Usuario unUsuario, List<Turno> listaTurnos, Horario unHorario, int id, String dni, String nombre, String apellido, String telefono, String direccion, String fecha_nac) {
         super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.especialidad = especialidad;
         this.unUsuario = unUsuario;
