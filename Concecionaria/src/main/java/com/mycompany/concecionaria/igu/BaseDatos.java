@@ -1,7 +1,12 @@
 
 package com.mycompany.concecionaria.igu;
 
+import com.mycompany.concecionaria.logica.Auto;
 import com.mycompany.concecionaria.logica.ControladoraLogica;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class BaseDatos extends javax.swing.JFrame {
@@ -10,6 +15,7 @@ public class BaseDatos extends javax.swing.JFrame {
     public BaseDatos() {
         control = new ControladoraLogica();
         initComponents();
+        
     }
 
     /**
@@ -31,6 +37,11 @@ public class BaseDatos extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("LISTADO AUTOMOVILES");
@@ -143,22 +154,54 @@ public class BaseDatos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void formWindowOpened(java.awt.event.WindowEvent evt){
-        cargarTabla();
-    }
+
     
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        if(tablaAutomoviles.getRowCount()>0){
+            if(tablaAutomoviles.getSelectedRow()!=-1){
+                int id = Integer.parseInt(String.valueOf(tablaAutomoviles.getValueAt(tablaAutomoviles.getSelectedRow(), 0)));
+                
+                control.borrarAuto(id);
+                mostrarMensaje("Auto eliminado correctamente", "info", "Borrado Automovil");
+                cargarTabla();
+            }else{
+                mostrarMensaje("No selecciono ningun Auto", "error", "Error al eliminar");
+            }
+        }else{
+            mostrarMensaje("La Tabla no tiene datos", "error", "Error al eliminar");
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        if(tablaAutomoviles.getRowCount()>0){
+            if(tablaAutomoviles.getSelectedRow()!=-1){
+                
+                int id = Integer.parseInt(String.valueOf(tablaAutomoviles.getValueAt(tablaAutomoviles.getSelectedRow(), 0)));
+            
+                ModificarAutomoviles modifAutos = new ModificarAutomoviles(id);
+                modifAutos.setVisible(true);
+                modifAutos.setLocationRelativeTo(null);
+                
+                this.dispose();
+                
+                
+                           
+            }else{
+                mostrarMensaje("No selecciono ningun Automovil", "error", "Error al modificar");
+            }
+        } else{
+            mostrarMensaje("La tabla se encuentra vacia", "error", "Error al modificar");
+        } 
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       cargarTabla();
+    }//GEN-LAST:event_formWindowOpened
 
     
    
@@ -175,7 +218,38 @@ public class BaseDatos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+            
+            @Override
+            public boolean isCellEditable(int row , int column){
+                return false;
+            }
+        };
+        String titulos [] = {"Id","Marca","Modelo","Color","Motor","Patente","Puertas"};
+        modeloTabla.setColumnIdentifiers(titulos);
         
+        List<Auto>listaAutos = control.traerAutos();
+        
+        if(listaAutos!=null){
+            for(Auto auto : listaAutos){
+                Object [] objeto = {auto.getId(),auto.getMarca(),auto.getModelo(),auto.getColor(),auto.getMotor(),auto.getPatente(),auto.getCantidad_puertas()};
+                modeloTabla.addRow(objeto);
+            }
+        }
+        tablaAutomoviles.setModel(modeloTabla);
+    }
+    
+    public void mostrarMensaje(String mensaje,String tipo,String titulo){
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        }else if(tipo.equals("error")){
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+            
+            JDialog dialog = optionPane.createDialog(titulo);
+            dialog.setAlwaysOnTop(true);
+            dialog.setVisible(true);           
+        }
     }
     
     
