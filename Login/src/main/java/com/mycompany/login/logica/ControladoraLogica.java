@@ -14,7 +14,7 @@ public class ControladoraLogica {
         
         for(Usuario usu : listaUsuarios){
             if(usu.getNombreUsuario().equals(usuario)){
-                if(usu.getContraseña().equals(contrasenia)){
+                if(usu.getContrasenia().equals(contrasenia)){
                     mensaje = "Usuario y contraseña correctos. Bienvenido!";
                     return mensaje;
                 }
