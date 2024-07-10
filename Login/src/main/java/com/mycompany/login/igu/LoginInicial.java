@@ -2,11 +2,12 @@
 package com.mycompany.login.igu;
 
 import com.mycompany.login.logica.ControladoraLogica;
+import com.mycompany.login.logica.Usuario;
 
-public class Pantalla extends javax.swing.JFrame {
+public class LoginInicial extends javax.swing.JFrame {
 
     ControladoraLogica control = null;
-    public Pantalla() {
+    public LoginInicial() {
         initComponents();
         control = new ControladoraLogica();
     }
@@ -148,10 +149,29 @@ public class Pantalla extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contrasenia = txtContrasenia.getText();
         
+        Usuario user = control.validarUsuario(usuario,contrasenia);
         
-        String mensaje = control.validarUsuario(usuario,contrasenia);
+        if(user!=null){
+            String rol = user.getUnRol().getNombreRol();
+            
+            if(rol.equals("admin")){
+                PrincipalAdmin pAdmin = new PrincipalAdmin(control);
+                pAdmin.setVisible(true);
+                pAdmin.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            if(rol.equals("user")){
+                PrincipalUser pUser = new PrincipalUser(control);
+                pUser.setVisible(true);
+                pUser.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        }
+        else{
+            txtMensaje.setText("Usuario o contraseña incorrectos");
+        }
         
-        txtMensaje.setText(mensaje);
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

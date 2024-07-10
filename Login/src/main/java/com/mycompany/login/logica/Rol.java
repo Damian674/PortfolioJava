@@ -14,7 +14,7 @@ public class Rol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String rol;
+    private String nombreRol;
     private String descripcion;
     
     @OneToMany(mappedBy = "unRol")
@@ -23,9 +23,9 @@ public class Rol implements Serializable {
     public Rol() {
     }
 
-    public Rol(int id, String rol, String descripcion, List<Usuario> listaUsuarios) {
+    public Rol(int id, String nombreRol, String descripcion, List<Usuario> listaUsuarios) {
         this.id = id;
-        this.rol = rol;
+        this.nombreRol = nombreRol;
         this.descripcion = descripcion;
         this.listaUsuarios = listaUsuarios;
     }
@@ -50,13 +50,15 @@ public class Rol implements Serializable {
         this.id = id;
     }
 
-    public String getRol() {
-        return rol;
+    public String getNombreRol() {
+        return nombreRol;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
     }
+
+    
 
     public String getDescripcion() {
         return descripcion;
