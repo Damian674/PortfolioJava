@@ -30,7 +30,7 @@ public class ControladoraLogica {
             else{
                 //mensaje = "Usuario no encontrado";
                 user = null;
-                return user;
+                
             }
         }
         return user;
