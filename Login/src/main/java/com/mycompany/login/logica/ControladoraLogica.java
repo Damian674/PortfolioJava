@@ -36,6 +36,12 @@ public class ControladoraLogica {
         return user;
     }
 
+    public List<Usuario> traerUsuarios() {
+        return controlPersis.traerUsuarios();
+    }
+
+   
+
     
     
 }

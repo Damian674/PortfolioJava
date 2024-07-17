@@ -6,6 +6,8 @@ package com.mycompany.login.igu;
 
 import com.mycompany.login.logica.ControladoraLogica;
 import com.mycompany.login.logica.Usuario;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,7 +36,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtTabla = new javax.swing.JTable();
+        txtTablaAdmin = new javax.swing.JTable();
         btnEditar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnNuevoUsuario = new javax.swing.JButton();
@@ -52,7 +54,7 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("Sistema Administrador Usuarios");
 
-        txtTabla.setModel(new javax.swing.table.DefaultTableModel(
+        txtTablaAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -63,13 +65,18 @@ public class PrincipalAdmin extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(txtTabla);
+        jScrollPane1.setViewportView(txtTablaAdmin);
 
         btnEditar.setText("Editar Usuario");
 
         btnBorrar.setText("Borrar Usuario");
 
         btnNuevoUsuario.setText("Crear Nuevo Usuario");
+        btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoUsuarioActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +86,11 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         });
 
         btnRecargarTabla.setText("Recargar Tabla");
+        btnRecargarTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargarTablaActionPerformed(evt);
+            }
+        });
 
         txtNombreUser.setEditable(false);
         txtNombreUser.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +160,8 @@ public class PrincipalAdmin extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
           this.txtNombreUser.setText(user.getNombreUsuario());
+          
+          cargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
     private void txtNombreUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUserActionPerformed
@@ -157,6 +171,14 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnRecargarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarTablaActionPerformed
+        cargarTabla();
+    }//GEN-LAST:event_btnRecargarTablaActionPerformed
+
+    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+        
+    }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -169,6 +191,29 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtNombreUser;
-    private javax.swing.JTable txtTabla;
+    private javax.swing.JTable txtTablaAdmin;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+            
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        String titulos[] = {"id","usuario","rol"};
+        modeloTabla.setColumnIdentifiers(titulos);
+        
+        List<Usuario> listaUsuarios = control.traerUsuarios();
+        if(listaUsuarios!=null){
+            for(Usuario usu : listaUsuarios){
+                Object[] objeto = {usu.getId(),usu.getNombreUsuario(),usu.getUnRol().getNombreRol()};
+                modeloTabla.addRow(objeto);
+            }
+        }
+        
+        txtTablaAdmin.setModel(modeloTabla);
+    }
 }
