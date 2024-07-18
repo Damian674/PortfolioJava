@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.login.igu;
 
 import com.mycompany.login.logica.ControladoraLogica;
@@ -9,10 +6,7 @@ import com.mycompany.login.logica.Usuario;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Damian
- */
+
 public class PrincipalAdmin extends javax.swing.JFrame {
 
     ControladoraLogica control;
@@ -177,7 +171,10 @@ public class PrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecargarTablaActionPerformed
 
     private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
-        
+        AltaUsuarios altaUsu = new AltaUsuarios(control);
+        altaUsu.setVisible(true);
+        altaUsu.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
 
 

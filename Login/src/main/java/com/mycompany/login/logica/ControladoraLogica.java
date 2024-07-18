@@ -40,6 +40,20 @@ public class ControladoraLogica {
         return controlPersis.traerUsuarios();
     }
 
+    public List<Rol> traerRoles() {
+        return controlPersis.traerRoles();
+    }
+
+    public void crearUsuario(String usuario, String contrasenia, String rol) {
+        Usuario usu = new Usuario();
+        usu.setNombreUsuario(usuario);
+        usu.setContrasenia(contrasenia);
+        
+        
+        
+        
+    }
+
    
 
     

@@ -1,14 +1,20 @@
 
 package com.mycompany.login.igu;
 
+import com.mycompany.login.logica.ControladoraLogica;
+import com.mycompany.login.logica.Rol;
+import java.util.List;
+
 
 public class AltaUsuarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AltaUsuarios
-     */
-    public AltaUsuarios() {
+    ControladoraLogica control;
+    Rol rol;
+    
+    
+    public AltaUsuarios(ControladoraLogica control) {
         initComponents();
+        this.control = control;
     }
 
     /**
@@ -50,9 +56,6 @@ public class AltaUsuarios extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Rol:");
 
-        txtContra.setEditable(false);
-
-        txtUsuario.setEditable(false);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -61,9 +64,19 @@ public class AltaUsuarios extends javax.swing.JFrame {
 
         btnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,8 +145,28 @@ public class AltaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        List<Rol> listaRoles = control.traerRoles();       
+        if(listaRoles!=null){
+            for(Rol rol : listaRoles){
+                cmbRol.addItem(rol.getNombreRol());
+            }
+        }
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtUsuario.setText("");
+        txtContra.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String usuario = txtUsuario.getText();
+        String contrasenia = txtContra.getText();
+        String rol = (String)cmbRol.getSelectedItem();
+        
+        control.crearUsuario(usuario,contrasenia,rol);
+        
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     
    
