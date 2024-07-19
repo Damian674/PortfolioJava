@@ -44,14 +44,29 @@ public class ControladoraLogica {
         return controlPersis.traerRoles();
     }
 
-    public void crearUsuario(String usuario, String contrasenia, String rol) {
+    public void crearUsuario(String usuario, String contrasenia, String rolRecibido) {
         Usuario usu = new Usuario();
         usu.setNombreUsuario(usuario);
         usu.setContrasenia(contrasenia);
         
+        Rol rolEncontrado = new Rol();
+        rolEncontrado = this.traerRol(rolRecibido);
+        if(rolEncontrado!=null){
+            usu.setUnRol(rolEncontrado);
+        }
+        
+        controlPersis.crearUsuario(usu);
         
         
-        
+    }
+
+    private Rol traerRol(String rolRecibido) {
+        List<Rol> listaRoles = controlPersis.traerRoles();
+        for(Rol rol:listaRoles){
+            if(rol.getNombreRol().equals(rolRecibido));
+            return rol;
+        }
+        return null;
     }
 
    

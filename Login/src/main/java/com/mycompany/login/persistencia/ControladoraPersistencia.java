@@ -17,5 +17,9 @@ public class ControladoraPersistencia {
     public List<Rol> traerRoles() {
         return rolJpa.findRolEntities();
     }
+
+    public void crearUsuario(Usuario usu) {
+        usuJpa.create(usu);
+    }
     
 }

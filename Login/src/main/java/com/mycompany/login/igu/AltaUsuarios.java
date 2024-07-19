@@ -165,6 +165,8 @@ public class AltaUsuarios extends javax.swing.JFrame {
         
         control.crearUsuario(usuario,contrasenia,rol);
         
+        this.dispose();
+        
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
