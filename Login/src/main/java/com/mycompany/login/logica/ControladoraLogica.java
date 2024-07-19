@@ -49,11 +49,15 @@ public class ControladoraLogica {
         usu.setNombreUsuario(usuario);
         usu.setContrasenia(contrasenia);
         
-        Rol rolEncontrado = new Rol();
+        Rol rolEncontrado = new Rol ();
         rolEncontrado = this.traerRol(rolRecibido);
+        
         if(rolEncontrado!=null){
             usu.setUnRol(rolEncontrado);
         }
+        
+        int id = this.buscarUltimaIdUsuarios();
+        usu.setId(id+1);
         
         controlPersis.crearUsuario(usu);
         
@@ -63,10 +67,17 @@ public class ControladoraLogica {
     private Rol traerRol(String rolRecibido) {
         List<Rol> listaRoles = controlPersis.traerRoles();
         for(Rol rol:listaRoles){
-            if(rol.getNombreRol().equals(rolRecibido));
+            if(rol.getNombreRol().equals(rolRecibido));{
             return rol;
         }
+    }
         return null;
+    }
+
+    private int buscarUltimaIdUsuarios() {
+        List<Usuario> listaUsuarios = this.traerUsuarios();
+        Usuario usu = listaUsuarios.get(listaUsuarios.size()-1);
+        return usu.getId();
     }
 
    

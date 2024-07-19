@@ -64,6 +64,11 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         btnEditar.setText("Editar Usuario");
 
         btnBorrar.setText("Borrar Usuario");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         btnNuevoUsuario.setText("Crear Nuevo Usuario");
         btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +181,10 @@ public class PrincipalAdmin extends javax.swing.JFrame {
         altaUsu.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
